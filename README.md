@@ -1,8 +1,10 @@
 # BagPath
 
-BagPath is an autonomous follow-me robot: it tracks a leader (originally a printed marker, now a learned face) with a camera and drives to stay a fixed distance behind them, hands-free. Built by a 4-person team for the CIJE Tank competition.
+BagPath is a rentable attachment that makes any suitcase follow its owner hands-free through busy airports. A HuskyLens camera tracks the traveler and an Arduino drives two DC motors to hold a fixed following distance, so travelers keep the suitcase they already own instead of buying an $800+ smart suitcase.
 
-**Target market:** the beachhead use case is golf caddying — carrying clubs and following a golfer around the course — positioned as a lower-cost alternative to existing autonomous caddies, which generally start above $1,500.
+Built by a 4-person team (Ari Bellman, Josh Greenfield, Nadav Levine, Daniel Lerner) for CIJE Innovation Day 2026, where it won **1st Place, Best Use of AI/ML**. Nadav led data analytics and computer vision: the on-device tracking code and a 28-traveler survey (89% found it useful) that validated a $5–$15 per-trip rental price.
+
+**Portfolio and demo:** [bagpath.lovable.app](https://bagpath.lovable.app)
 
 **Status:** the core follow-me loop (detect leader, estimate distance, steer motors to close/hold distance) works and has been calibrated against the team's own hardware. The planned UWB radio upgrade (see below) has **not** been built — current tracking is camera-only and requires line of sight.
 
@@ -57,7 +59,7 @@ Each stage kept the same underlying control loop (`readBestTarget` → `estimate
 
 ## Planned: UWB radio upgrade
 
-Camera-based tracking requires unbroken line of sight between HuskyLens and the leader — trees, other people, or the leader briefly turning a corner can break tracking. The team's next planned step is adding Ultra-Wideband (UWB) radio ranging between the robot and a leader-worn tag, which would let BagPath maintain distance and bearing to the leader without needing to see them. **This has not been implemented yet** — the current repo is camera-only.
+Camera-based tracking requires unbroken line of sight between HuskyLens and the leader — crowds of other travelers, pillars, or the leader briefly turning a corner can break tracking. The team's next planned step is adding Ultra-Wideband (UWB) radio ranging between the robot and a leader-worn tag, which would let BagPath maintain distance and bearing to the leader without needing to see them. **This has not been implemented yet** — the current repo is camera-only.
 
 ## Repo contents
 
