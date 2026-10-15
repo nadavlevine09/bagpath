@@ -52,10 +52,10 @@ Distance thresholds: robot stops within `STOP_DIST_CM = 12cm`, drives forward on
 The leader-tracking target evolved through three stages as the team ran into real-world limitations:
 
 1. **Cardboard marker.** The earliest working version (`Code Files` history) tracked a small printed cardboard square (labeled "B") held by the leader. Simple and reliable in testing, but required the leader to visibly hold a physical object at all times.
-2. **AprilTag.** The team moved to an AprilTag-style fiducial marker for more robust, uniquely-identifiable tracking — still required a printed tag on the leader, but was more resistant to false-positive detections than plain cardboard.
-3. **Face recognition (current).** The current build trains HuskyLens's Object Tracking algorithm on the leader's face instead of a printed marker, so the leader doesn't need to carry or wear anything. This is the mode `BagPath_Main.ino` is calibrated for today.
+2. **AprilTag (competition build).** The team moved to an AprilTag-style fiducial marker worn by the traveler for more robust, uniquely-identifiable tracking — more resistant to false-positive detections than plain cardboard. This is the version shown at CIJE Innovation Day and on the portfolio site.
+3. **Face recognition (personal extension, after the competition).** After the project ended, Nadav took the prototype home and continued developing it independently. This build trains HuskyLens's Object Tracking algorithm on the leader's face instead of a printed marker, so the leader doesn't need to carry or wear anything. This is the mode `BagPath_Main.ino` is calibrated for today.
 
-Each stage kept the same underlying control loop (`readBestTarget` → `estimateDistanceCm` → `computeForwardSpeed`/turn bias → ramped motor output) — only what HuskyLens was trained to recognize changed.
+Each stage kept the same underlying control loop (`readBestTarget` → `estimateDistanceCm` → `computeForwardSpeed`/turn bias → ramped motor output) — only what HuskyLens was trained to recognize changed. Note that the code in this repo reflects the later face-tracking build, not the competition build.
 
 ## Planned: UWB radio upgrade
 
